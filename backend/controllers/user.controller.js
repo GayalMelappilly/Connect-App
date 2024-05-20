@@ -311,7 +311,7 @@ export const inviteUser = async (req, res) => {
                         <p>You have been personally invited by <strong>${user.displayName}</strong> (<a href="mailto:${user.email}" style="color: #38b2ac;">${user.email}</a>) to join Connect.</p>
                         <p>Connect is a platform where you can chat, collaborate, and stay connected effortlessly.</p>
                         <p>To accept the invitation and join our community, please click the button below:</p>
-                        <a href="http://localhost:5173/" style="display: inline-block; padding: 10px 20px; margin: 20px 0; background-color: #38b2ac; color: #fff; text-decoration: none; border-radius: 5px;">Accept Invitation</a>
+                        <a href="https://connect-app-ykav.onrender.com" style="display: inline-block; padding: 10px 20px; margin: 20px 0; background-color: #38b2ac; color: #fff; text-decoration: none; border-radius: 5px;">Accept Invitation</a>
                         <p>We look forward to seeing you online and helping you connect, chat, and collaborate with ease!</p>
                         <p>Best regards,<br>Connect Team</p>
                     </div>
