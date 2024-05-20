@@ -1,5 +1,6 @@
 import path from 'path'
 import connectDB from './db/connection.js'
+import MongoStore from 'connect-mongo'
 import dotenv from 'dotenv'
 import express from 'express'
 import session from 'express-session'
