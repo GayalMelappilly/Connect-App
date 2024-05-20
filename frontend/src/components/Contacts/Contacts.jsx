@@ -33,7 +33,7 @@ function Contacts() {
     const [reqCount, setReqCount] = useState(null)
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/user/request-list?id=${userInfo._id}`).then((response) => {
+        axios.get(`https://connect-app-ykav.onrender.com/user/request-list?id=${userInfo._id}`).then((response) => {
             if (response.data) {
                 setReqCount(response.data.incomingRequests.length)
             }
@@ -49,7 +49,7 @@ function Contacts() {
     })
 
     useEffect(() => {
-        axios.post('http://localhost:5000/user/contacts', { userId: userInfo._id }).then((response) => {
+        axios.post('https://connect-app-ykav.onrender.com/user/contacts', { userId: userInfo._id }).then((response) => {
             setAllContacts(response.data.contacts)
         })
     }, [userInfo])

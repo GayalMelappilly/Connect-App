@@ -4,14 +4,14 @@ import { IoIosCheckmark, IoIosClose } from 'react-icons/io'
 const FriendReq = ({user, userInfo, setContact, setFriendReq, friendReq}) => {
 
     const handleAccept = (user) => {
-        axios.put('http://localhost:5000/user/req-accept', { reqFrom: user, reqTo: userInfo }).then((response) => {
+        axios.put('https://connect-app-ykav.onrender.com/user/req-accept', { reqFrom: user, reqTo: userInfo }).then((response) => {
             setContact(response.data.contacts)
             setFriendReq(response.data)
         })
     }
 
     const handleDecline = (user) => {
-        axios.put('http://localhost:5000/user/req-decline', { reqFrom: user, reqTo: userInfo }).then((response) => {
+        axios.put('https://connect-app-ykav.onrender.com/user/req-decline', { reqFrom: user, reqTo: userInfo }).then((response) => {
             console.log("DECLINED : ", response.data)
             setFriendReq(response.data)
         })

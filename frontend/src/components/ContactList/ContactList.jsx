@@ -9,7 +9,7 @@ const ContactList = ({ contact, selection, onlineUsers, userToRemove, userInfo, 
         setSelection(contact._id);
         setMdContactBar(contact);
         console.log("CLICKED ", contact)
-        axios.post('http://localhost:5000/message/get/', { senderId: userInfo._id, receiverId: contact._id }).then((response) => {
+        axios.post('https://connect-app-ykav.onrender.com/message/get/', { senderId: userInfo._id, receiverId: contact._id }).then((response) => {
             if (response) {
                 const receiverInfo = {
                     _id: contact._id,
@@ -29,7 +29,7 @@ const ContactList = ({ contact, selection, onlineUsers, userToRemove, userInfo, 
 
     const HandleRemoveFriend = (contact, userInfo) => {
         console.log('HANDLE REMOVE FRIEND : HandleRemoveFriend', contact)
-        axios.put('http://localhost:5000/user/remove-friend', { details: contact, user: userInfo }).then((response) => {
+        axios.put('https://connect-app-ykav.onrender.com/user/remove-friend', { details: contact, user: userInfo }).then((response) => {
             console.log("CONTACT FROM REMOVED : ", response.data)
             setAllContacts(response.data.contacts)
             setSelection(null)

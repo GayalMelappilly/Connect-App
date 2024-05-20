@@ -13,7 +13,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if (status && userInfo) {
-            const socket = io('http://localhost:5000', {
+            const socket = io('https://connect-app-ykav.onrender.com', {
                 query: {
                     userId: userInfo._id
                 }

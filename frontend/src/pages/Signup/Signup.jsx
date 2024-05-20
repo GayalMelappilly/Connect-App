@@ -25,9 +25,8 @@ function Signup() {
   }, [])
 
   const handleClick = () => {
-    window.location.href = 'http://connect-app-ykav.onrender.com/auth/google';
+    window.location.href = 'https://connect-app-ykav.onrender.com/auth/google';
   };
-
 
 
   return (
