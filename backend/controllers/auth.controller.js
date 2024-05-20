@@ -27,6 +27,7 @@ export const logout = (req, res) => {
 
 
 export const signup = (req, res) => {
+       try {
         if (!req.user) {
                 console.log("SIGN IN FAILED")
                 res.status(401).json({ message: 'Sign in failed' })
@@ -36,6 +37,9 @@ export const signup = (req, res) => {
         res.cookie('userData', JSON.stringify(userData));
 
         res.redirect('http://localhost:5173/signup');
+       } catch (error) {
+        console.log("ERROR IN SIGNUP", error)
+       }
 }
 
 export const failed = (req, res) => {
