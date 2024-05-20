@@ -32,7 +32,11 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24,
         secure: false,
-    }
+    },
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_DB_URI,
+        ttl: 14 * 24 * 60 * 60
+    })
 }))
 
 app.use(passport.initialize())
@@ -42,10 +46,10 @@ app.use('/auth', authRouter)
 app.use('/user', userRouter)
 app.use('/message', messageRoute)
 
-app.use(express.static(path.join(__dirname,'/frontend/dist')))
+app.use(express.static(path.join(__dirname, '/frontend/dist')))
 
-app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'frontend','dist','index.html'))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'))
 })
 
 server.listen(PORT, () => {
