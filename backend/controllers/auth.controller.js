@@ -36,7 +36,7 @@ export const signup = (req, res) => {
 
         res.cookie('userData', JSON.stringify(userData));
 
-        res.redirect('http://localhost:5173/signup');
+        res.redirect('https://connect-app-ykav.onrender.com/signup');
        } catch (error) {
         console.log("ERROR IN SIGNUP", error)
        }
