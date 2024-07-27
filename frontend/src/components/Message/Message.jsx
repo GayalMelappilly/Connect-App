@@ -39,7 +39,7 @@ function Message() {
     }, [messageInfo]);
 
     const handleSend = () => {
-        axios.post('https://connect-app-ykav.onrender.com/message/send/', { userInfo, messageInfo, text })
+        axios.post(`${process.env.LOCAL_URI}/message/send/`, { userInfo, messageInfo, text })
             .then((response) => {
                 console.log(response.data);
             });

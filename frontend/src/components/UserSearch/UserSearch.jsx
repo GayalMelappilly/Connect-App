@@ -8,6 +8,8 @@ import { ContactContext } from '../../contexts/ContactContext';
 import FriendReq from '../FriendReq/FriendReq';
 import UserSearchList from '../UserSearchList/UserSearchList';
 
+
+
 const UserSearch = () => {
 
     const [username, setUsername] = useState('')
@@ -22,14 +24,14 @@ const UserSearch = () => {
 
     useEffect(() => {
         console.log("USER : ", userInfo)
-        axios.post('https://connect-app-ykav.onrender.com/user/contacts', { userId: userInfo._id }).then((response) => {
+        axios.post(`${process.env.LOCAL_URI}/user/contacts`, { userId: userInfo._id }).then((response) => {
             console.log("SET CONT : ", response.data.contacts)
             setCont(response.data.contacts)
         })
     }, [userInfo])
 
     useEffect(() => {
-        axios.get(`https://connect-app-ykav.onrender.com/user/list?search=${username}&id=${userInfo._id}`).then((response) => {
+        axios.get(`${process.env.LOCAL_URI}/user/list?search=${username}&id=${userInfo._id}`).then((response) => {
             console.log("CONT : ", cont)
             setUser(response.data)
             setEmailCheck(true)
@@ -37,7 +39,7 @@ const UserSearch = () => {
     }, [username])
 
     useEffect(() => {
-        axios.get(`https://connect-app-ykav.onrender.com/user/request-list?id=${userInfo._id}`).then((response) => {
+        axios.get(`${process.env.LOCAL_URI}/user/request-list?id=${userInfo._id}`).then((response) => {
             setFriendReq(response.data)
         })
     }, [])

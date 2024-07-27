@@ -4,6 +4,7 @@ import './Signup.css'
 import { StatusContext } from '../../contexts/AuthContext'
 import { UserInfoContext } from '../../contexts/UserInfoContext'
 
+
 function Signup() {
 
   const navigate = useNavigate()
@@ -25,7 +26,7 @@ function Signup() {
   }, [])
 
   const handleClick = () => {
-    window.location.href = 'https://connect-app-ykav.onrender.com/auth/google';
+    window.location.href = `${process.env.LOCAL_URI}/auth/google`;
   };
 
 

@@ -3,6 +3,7 @@ import { StatusContext } from './AuthContext';
 import { UserInfoContext } from './UserInfoContext';
 import io from "socket.io-client";
 
+
 export const SocketContext = createContext(null)
 
 export const SocketContextProvider = ({ children }) => {
@@ -13,7 +14,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if (status && userInfo) {
-            const socket = io('https://connect-app-ykav.onrender.com', {
+            const socket = io(`http://localhost:5000`, {
                 query: {
                     userId: userInfo._id
                 }

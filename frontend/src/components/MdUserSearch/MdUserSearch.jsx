@@ -21,14 +21,14 @@ const MdUserSearch = ({ setMdShowUserSearch, setMdProp }) => {
 
     useEffect(() => {
         console.log("USER : ", userInfo)
-        axios.post('https://connect-app-ykav.onrender.com/user/contacts', { userId: userInfo._id }).then((response) => {
+        axios.post(`${process.env.LOCAL_URI}/user/contacts`, { userId: userInfo._id }).then((response) => {
             console.log("SET CONT : ", response.data.contacts)
             setCont(response.data.contacts)
         })
     }, [userInfo])
 
     useEffect(() => {
-        axios.get(`https://connect-app-ykav.onrender.com/user/list?search=${username}&id=${userInfo._id}`).then((response) => {
+        axios.get(`${process.env.LOCAL_URI}/user/list?search=${username}&id=${userInfo._id}`).then((response) => {
             console.log("CONT : ", cont)
             setUser(response.data)
             setEmailCheck(true)
@@ -36,26 +36,26 @@ const MdUserSearch = ({ setMdShowUserSearch, setMdProp }) => {
     }, [username])
 
     useEffect(() => {
-        axios.get(`https://connect-app-ykav.onrender.com/user/request-list?id=${userInfo._id}`).then((response) => {
+        axios.get(`${process.env.LOCAL_URI}/user/request-list?id=${userInfo._id}`).then((response) => {
             setFriendReq(response.data)
         })
     }, [])
 
     const handleAddFriend = (user) => {
-        axios.post(`https://connect-app-ykav.onrender.com/user/add-friend`, { senderDetails: userInfo, receiverDetails: user }).then((response) => {
+        axios.post(`${process.env.LOCAL_URI}/user/add-friend`, { senderDetails: userInfo, receiverDetails: user }).then((response) => {
             console.log("ADDED : ", response.data)
         })
     }
 
     const handleAccept = (user) => {
-        axios.put('https://connect-app-ykav.onrender.com/user/req-accept', { reqFrom: user, reqTo: userInfo }).then((response) => {
+        axios.put(`${process.env.LOCAL_URI}/user/req-accept`, { reqFrom: user, reqTo: userInfo }).then((response) => {
             setContact(response.data.contacts)
             setFriendReq(response.data)
         })
     }
 
     const handleDecline = (user) => {
-        axios.put('https://connect-app-ykav.onrender.com/user/req-decline', { reqFrom: user, reqTo: userInfo }).then((response) => {
+        axios.put(`${process.env.LOCAL_URI}/user/req-decline`, { reqFrom: user, reqTo: userInfo }).then((response) => {
             console.log("DECLINED : ", response.data)
             setFriendReq(response.data)
         })
@@ -65,7 +65,7 @@ const MdUserSearch = ({ setMdShowUserSearch, setMdProp }) => {
         console.log('USERNAME ', username)
         if (username.includes('@gmail.com')) {
             setEmailCheck(true)
-            axios.post('https://connect-app-ykav.onrender.com/user/invite-user', { email: username, user: userInfo }).then((response) => {
+            axios.post(`${process.env.LOCAL_URI}/user/invite-user`, { email: username, user: userInfo }).then((response) => {
                 console.log("INVITE SUCCESSFULLY : ", response.data)
             })
         } else {

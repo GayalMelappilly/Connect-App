@@ -9,7 +9,7 @@ const ContactList = ({ contact, selection, onlineUsers, userToRemove, userInfo, 
         setSelection(contact._id);
         setMdContactBar(contact);
         console.log("CLICKED ", contact)
-        axios.post('https://connect-app-ykav.onrender.com/message/get/', { senderId: userInfo._id, receiverId: contact._id }).then((response) => {
+        axios.post(`${process.env.LOCAL_URI}/message/get/`, { senderId: userInfo._id, receiverId: contact._id }).then((response) => {
             if (response) {
                 const receiverInfo = {
                     _id: contact._id,
@@ -29,7 +29,7 @@ const ContactList = ({ contact, selection, onlineUsers, userToRemove, userInfo, 
 
     const HandleRemoveFriend = (contact, userInfo) => {
         console.log('HANDLE REMOVE FRIEND : HandleRemoveFriend', contact)
-        axios.put('https://connect-app-ykav.onrender.com/user/remove-friend', { details: contact, user: userInfo }).then((response) => {
+        axios.put(`${process.env.LOCAL_URI}/user/remove-friend`, { details: contact, user: userInfo }).then((response) => {
             console.log("CONTACT FROM REMOVED : ", response.data)
             setAllContacts(response.data.contacts)
             setSelection(null)
@@ -51,6 +51,7 @@ const ContactList = ({ contact, selection, onlineUsers, userToRemove, userInfo, 
                 </div>
                 <div className='ml-2'>
                     <h1 className='text-sm text-[#1B1E1C] dark:text-white'>{contact.displayName}</h1>
+                    <p>Sample</p>
                     <p className='text-xs text-[#1B1E1C] dark:text-slate-400'>{contact.email}</p>
                 </div>
             </label>
