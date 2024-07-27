@@ -120,6 +120,9 @@ function Contacts() {
                     />
                 ))}
             </div>
+            <div>
+                <p>Gemini</p>
+            </div>
         </div>
     )
 }
