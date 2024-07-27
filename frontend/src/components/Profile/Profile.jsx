@@ -15,14 +15,14 @@ const Profile = () => {
     const [date, setDate] = useState('')
 
     useEffect(() => {
-        axios.post(`${process.env.LOCAL_URI}/user/contacts`, { userId: userInfo._id }).then((response) => {
+        axios.post(`https://connect-app-ykav.onrender.com/user/contacts`, { userId: userInfo._id }).then((response) => {
             setContactCount(response.data.contacts.length)
             setDate(getDate(userInfo.createdAt))
         })
     }, [userInfo])
 
     const HandleLogout = () => {
-        axios.get(`${process.env.LOCAL_URI}/auth/logout`).then(() => {
+        axios.get(`https://connect-app-ykav.onrender.com/auth/logout`).then(() => {
             setStatus(false)
             document.cookie = `userData=;  Max-Age=-99999999;`;
             console.log("LOGOUT SUCCESSFUL.", status)

@@ -26,6 +26,8 @@ app.use(cors({
     optionsSuccessStatus: 200
 }))
 
+// https://connect-app-ykav.onrender.com
+
 app.use(session({
     secret: 'secret',
     resave: false,

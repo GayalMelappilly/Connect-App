@@ -28,7 +28,7 @@ function Sidebar() {
     })
 
     useEffect(() => {
-        axios.get(`${process.env.LOCAL_URI}/user/request-list?id=${userInfo._id}`).then((response) => {
+        axios.get(`https://connect-app-ykav.onrender.com/user/request-list?id=${userInfo._id}`).then((response) => {
             if(response.data){
                 setReqCount(response.data.incomingRequests.length)
             }

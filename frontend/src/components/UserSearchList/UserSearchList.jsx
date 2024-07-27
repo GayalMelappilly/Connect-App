@@ -5,7 +5,7 @@ import React from 'react'
 const UserSearchList = ({user, cont, userInfo, emailCheck, username, showReq, setEmailCheck}) => {
 
     const handleAddFriend = (user) => {
-        axios.post(`${process.env.LOCAL_URI}/user/add-friend`, { senderDetails: userInfo, receiverDetails: user }).then((response) => {
+        axios.post(`https://connect-app-ykav.onrender.com/user/add-friend`, { senderDetails: userInfo, receiverDetails: user }).then((response) => {
             console.log("ADDED : ", response.data)
         })
     }
@@ -14,7 +14,7 @@ const UserSearchList = ({user, cont, userInfo, emailCheck, username, showReq, se
         console.log('USERNAME ', username)
         if (username.includes('@gmail.com')) {
             setEmailCheck(true)
-            axios.post(`${process.env.LOCAL_URI}/user/invite-user`, { email: username, user: userInfo }).then((response) => {
+            axios.post(`https://connect-app-ykav.onrender.com/user/invite-user`, { email: username, user: userInfo }).then((response) => {
                 console.log("INVITE SUCCESSFULLY : ", response.data)
             })
         } else {

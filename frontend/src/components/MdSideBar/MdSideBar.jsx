@@ -9,7 +9,7 @@ const MdSideBar = ({setMdProp, setMdShowProfile, setMdShowSettings, setMdShowUse
 
     const HandleLogout = () => {
         console.log("LOGOUT")
-        axios.get(`${process.env.LOCAL_URI}/auth/logout`).then(() => {
+        axios.get(`https://connect-app-ykav.onrender.com/auth/logout`).then(() => {
             setStatus(false)
             document.cookie = `userData=;  Max-Age=-99999999;`;
             console.log("LOGOUT SUCCESSFUL.", status)
