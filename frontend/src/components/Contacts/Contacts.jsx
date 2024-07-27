@@ -121,7 +121,7 @@ function Contacts() {
                 ))}
             </div>
             <div>
-                <p>Gemini</p>
+                <p>GEMINI</p>
             </div>
         </div>
     )
