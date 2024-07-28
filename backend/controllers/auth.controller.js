@@ -36,7 +36,7 @@ export const signup = (req, res) => {
 
         res.cookie('userData', JSON.stringify(userData));
 
-        res.redirect('https://connect-app-ykav.onrender.com/signup');
+        res.redirect(`${process.env.NODE_ENV === 'development' ? process.env.LOCAL_URI : process.env.RENDER_URI}/signup`);
        } catch (error) {
         console.log("ERROR IN SIGNUP", error)
        }

@@ -24,14 +24,14 @@ const UserSearch = () => {
 
     useEffect(() => {
         console.log("USER : ", userInfo)
-        axios.post(`https://connect-app-ykav.onrender.com/user/contacts`, { userId: userInfo._id }).then((response) => {
+        axios.post(`${import.meta.env.VTIE_APP_NODE_ENV === 'development' ? import.meta.env.VTIE_APP_LOCAL_URI : import.meta.env.VTIE_APP_RENDER_URI}/user/contacts`, { userId: userInfo._id }).then((response) => {
             console.log("SET CONT : ", response.data.contacts)
             setCont(response.data.contacts)
         })
     }, [userInfo])
 
     useEffect(() => {
-        axios.get(`https://connect-app-ykav.onrender.com/user/list?search=${username}&id=${userInfo._id}`).then((response) => {
+        axios.get(`${import.meta.env.VTIE_APP_NODE_ENV === 'development' ? import.meta.env.VTIE_APP_LOCAL_URI : import.meta.env.VTIE_APP_RENDER_URI}/user/list?search=${username}&id=${userInfo._id}`).then((response) => {
             console.log("CONT : ", cont)
             setUser(response.data)
             setEmailCheck(true)
@@ -39,7 +39,7 @@ const UserSearch = () => {
     }, [username])
 
     useEffect(() => {
-        axios.get(`https://connect-app-ykav.onrender.com/user/request-list?id=${userInfo._id}`).then((response) => {
+        axios.get(`${import.meta.env.VTIE_APP_NODE_ENV === 'development' ? import.meta.env.VTIE_APP_LOCAL_URI : import.meta.env.VTIE_APP_RENDER_URI}/user/request-list?id=${userInfo._id}`).then((response) => {
             setFriendReq(response.data)
         })
     }, [])

@@ -14,7 +14,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if (status && userInfo) {
-            const socket = io(`http://localhost:5000`, {
+            const socket = io(`${import.meta.env.VTIE_APP_NODE_ENV === 'development' ? import.meta.env.VTIE_APP_LOCAL_URI : import.meta.env.VTIE_APP_RENDER_URI}`, {
                 query: {
                     userId: userInfo._id
                 }

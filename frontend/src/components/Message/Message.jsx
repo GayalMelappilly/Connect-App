@@ -39,7 +39,7 @@ function Message() {
     }, [messageInfo]);
 
     const handleSend = () => {
-        axios.post(`https://connect-app-ykav.onrender.com/message/send/`, { userInfo, messageInfo, text })
+        axios.post(`${import.meta.env.VTIE_APP_NODE_ENV === 'development' ? import.meta.env.VTIE_APP_LOCAL_URI : import.meta.env.VTIE_APP_RENDER_URI}/message/send/`, { userInfo, messageInfo, text })
             .then((response) => {
                 console.log(response.data);
             });

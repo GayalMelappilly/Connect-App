@@ -18,7 +18,7 @@ const SenderChat = (props) => {
 
     const handleDeleteMessage = () => {
         console.log("INFO :", props.details)
-        axios.put(`https://connect-app-ykav.onrender.com/message/delete-message`, { receiverId: props.details.receiverId, senderId: props.details.senderId, messageId: props.details._id }).then((response) => {
+        axios.put(`${import.meta.env.VTIE_APP_NODE_ENV === 'development' ? import.meta.env.VTIE_APP_LOCAL_URI : import.meta.env.VTIE_APP_RENDER_URI}/message/delete-message`, { receiverId: props.details.receiverId, senderId: props.details.senderId, messageId: props.details._id }).then((response) => {
             console.log(response.data)
             setMessageInfo(response.data)
         })

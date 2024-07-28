@@ -15,6 +15,7 @@ function GetStarted() {
 
   useEffect(() => {
     const urlEncodedString = document.cookie
+
     if (urlEncodedString) {
       const decodedString = decodeURIComponent(urlEncodedString);
       const jsonSubstring = decodedString.substring(decodedString.indexOf("{"));

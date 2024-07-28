@@ -28,7 +28,7 @@ function Sidebar() {
     })
 
     useEffect(() => {
-        axios.get(`https://connect-app-ykav.onrender.com/user/request-list?id=${userInfo._id}`).then((response) => {
+        axios.get(`${import.meta.env.VTIE_APP_NODE_ENV === 'development' ? import.meta.env.VTIE_APP_LOCAL_URI : import.meta.env.VTIE_APP_RENDER_URI}/user/request-list?id=${userInfo._id}`).then((response) => {
             if(response.data){
                 setReqCount(response.data.incomingRequests.length)
             }

@@ -9,7 +9,7 @@ passport.use(
     new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: 'https://connect-app-ykav.onrender.com/auth/google/callback',
+        callbackURL: `${process.env.NODE_ENV === 'development' ? process.env.REDIRECT_URI : process.env.RENDER_URI}auth/google/callback`,
         scope: ['profile', 'email'],
         prompt: 'select_account'
     },

@@ -21,7 +21,7 @@ const __dirname = path.resolve()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors({
-    origin: 'https://connect-app-ykav.onrender.com',
+    origin: `${process.env.NODE_ENV === 'development' ? process.env.LOCAL_URI : process.env.RENDER_URI}`,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     optionsSuccessStatus: 200
 }))
