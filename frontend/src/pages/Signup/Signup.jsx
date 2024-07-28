@@ -3,9 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import './Signup.css'
 import { StatusContext } from '../../contexts/AuthContext'
 import { UserInfoContext } from '../../contexts/UserInfoContext'
-import dotenv from 'dotenv'
-dotenv.config()
-
 
 function Signup() {
 
