@@ -12,6 +12,7 @@ import MdSideBar from '../MdSideBar/MdSideBar'
 import MdContactBar from '../MdContactBar/MdContactBar'
 import ContactList from '../ContactList/ContactList'
 import ContactSearch from '../ContactSearch/ContactSearch'
+import { SiGooglegemini } from "react-icons/si";
 
 function Contacts() {
 
@@ -60,7 +61,7 @@ function Contacts() {
     }, [contact])
 
     return (
-        <div className={`m-2 w-3/6 p-3 rounded-s-lg dark:bg-opacity-80 bg-center text-white dark:backdrop-blur-sm dark:bg-transparent dark:shadow-[0_3px_10px_rgb(0,0,0,0.4)] bg-emerald-100 shadow-gray-400 shadow-[1px_1px_8px_rgb(0,0,0,0.2)] transition-all ease-in-out duration-700 max-md:w-auto max-md:rounded-b-none ${messageInfo ? 'max-md:h-20' : 'max-md:h-5/6'}    ${mdProp ? 'max-lg:w-7/12' : null} ${mdShowUserSearch ? 'max-md:w-auto max-lg:w-10/12' : null}    max-xl:w-5/12`}>
+        <div className={`m-2 w-3/6 p-3 relative rounded-s-lg dark:bg-opacity-80 bg-center text-white dark:backdrop-blur-sm dark:bg-transparent dark:shadow-[0_3px_10px_rgb(0,0,0,0.4)] bg-emerald-100 shadow-gray-400 shadow-[1px_1px_8px_rgb(0,0,0,0.2)] transition-all ease-in-out duration-700 max-md:w-auto max-md:rounded-b-none ${messageInfo ? 'max-md:h-20' : 'max-md:h-5/6'}    ${mdProp ? 'max-lg:w-7/12' : null} ${mdShowUserSearch ? 'max-md:w-auto max-lg:w-10/12' : null}    max-xl:w-5/12`}>
             {!mdProp && <div className={`relative text-gray-600 focus-within:text-gray-400            max-md:flex  ${messageInfo ? 'max-md:hidden' : null} transition-all ease-in-out duration-700`}>
                 <ContactSearch
                     mdProp={mdProp}
@@ -119,8 +120,8 @@ function Contacts() {
                         setMdContactBar={setMdContactBar}
                     />
                 ))}
-                <div>
-                    <p>Sample gemini</p>
+                <div className='absolute bottom-0 right-0'>
+                    <SiGooglegemini />
                 </div>
             </div>
         </div>
