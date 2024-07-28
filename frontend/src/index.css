@@ -13,7 +13,7 @@
 }
 
 * {
-    @apply transition-all duration-700
+    @apply transition-all duration-200
 }
 
 .glow-dark {

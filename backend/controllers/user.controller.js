@@ -323,7 +323,7 @@ export const inviteUser = async (req, res) => {
             </html>
         `
     };
-    
+
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
@@ -369,4 +369,27 @@ export const removeFriend = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 
+}
+
+export const googleGemini = async (req, res) => {
+
+    const { prompt } = req.body
+
+    try {
+
+        const response = await axios.post('https://gemini.googleapis.com/v1/someEndpoint', {
+            input: input,
+          }, {
+            headers: {
+              'Authorization': `Bearer ${process.env.GEMINI_API_KEY}`,
+              'Content-Type': 'application/json'
+            }
+          });
+      
+          res.json(response.data);
+
+    } catch (error) {
+        console.log("ERROR IN GOOGLE GEMINI : ", error)
+        res.status(500).json({ message: error.message })
+    }
 }
