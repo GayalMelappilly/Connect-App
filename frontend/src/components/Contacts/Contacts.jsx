@@ -119,6 +119,9 @@ function Contacts() {
                         setMdContactBar={setMdContactBar}
                     />
                 ))}
+                <div>
+                    <p>Sample gemini</p>
+                </div>
             </div>
         </div>
     )
